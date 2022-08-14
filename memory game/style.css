@@ -1,0 +1,202 @@
+* {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: Arial, Tahoma, sans-serif;
+    background-color: yellow;
+  }
+  .control-buttons {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: rgba(8, 8, 8, 0.9);
+  }
+  .control-buttons span {
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translateX(-50%);
+    background-color: red;
+    color: #FFF;
+    padding: 15px 25px;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 6px;
+    cursor: pointer;
+    animation: animateButtonControle 1s ease-in-out;
+  }
+  
+  @keyframes animateButtonControle {
+     0%{
+        opacity: 0;
+        transform: translateX(-50%) translateY(200px);
+     }
+
+     100%{
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+     }
+  }
+  
+  .input__name{
+    width: 400px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px;
+    z-index: 111;
+  }
+
+  input{
+    padding: 10px ;
+    border-radius: 5px;
+    border: 1px solid rgba(53, 56, 55, 0.418);
+    outline: none;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+
+  .buttons{
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    gap: 15px;
+  }
+
+  .buttons button{
+    border-radius: 5px;
+    outline: none;
+    width: 100px;
+    height: 35px;
+    display: grid;
+    place-items: center;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .btn__ok{
+    background: rgb(48, 184, 48);
+    color: white;
+    
+  }
+
+  .btn__annuler{
+    background: #ddd;
+  }
+
+
+
+  .info-container {
+    width: 1080px;
+    margin: 20px auto 0;
+    background-color: #333;
+    padding: 20px;
+    font-size: 24px;
+    overflow: hidden;
+    color: white;
+    border: 5px solid white;
+    border-radius: 10px ;
+    position: sticky;
+  }
+  .info-container .name {
+    float: left;
+    width: 50%;
+  }
+  .info-container .tries {
+    float: right;
+    width: 50%;
+    text-align: right;
+  }
+  .info-container .tries span{
+    position: relative;
+  }
+
+  .info-container .tries .false::before{
+    position: absolute;
+    content: '+1';
+    top: 0;
+    color: white;
+    left: 50%;
+    font-size: 15px;
+    transform: translateX(-50%);
+    animation: animate 1s ease-in-out;
+    opacity: 0;
+  }
+
+  @keyframes animate {
+      0%{
+        transform: translateX(-50%) translateY(0);
+      }
+      100%{
+        transform: translateX(-50%) translateY(-30px);
+        opacity: 1;
+      }
+  }
+  .memory-game-blocks {
+    display: flex;
+    width: 1100px;
+    flex-wrap: wrap;
+    margin: 20px auto;
+  }
+  .memory-game-blocks.no-clicking {
+    pointer-events: none;
+  }
+  .memory-game-blocks .game-block {
+    height: 200px;
+    transition: transform .5s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+    flex: 1 0 200px;
+    margin: 0 10px 20px;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+  .memory-game-blocks .game-block .front {
+    background-color: #333;
+    line-height: 200px;
+  }
+  .memory-game-blocks .game-block .front:before {
+    content: '?';
+    color: #FFF;
+    font-size: 140px;
+    font-weight: bold;
+  }
+  .memory-game-blocks .game-block .back {
+    background-color: #607D8B;
+    transform: rotateY(180deg);
+  }
+  .memory-game-blocks .game-block .back img {
+    width: 140px;
+    height: 140px;
+    margin-top: 30px;
+  }
+  .memory-game-blocks .game-block .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    backface-visibility: hidden;
+    border: 5px solid #fff;
+    border-radius: 10px;
+  }
+  .memory-game-blocks .game-block.is-flipped,
+  .memory-game-blocks .game-block.has-match {
+    /*-webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);*/
+    transform: rotateY(180deg);
+    pointer-events: none;
+  }
+ 
+
+  .memory-game-blocks.no-clicking{
+    pointer-events: none;
+  }
